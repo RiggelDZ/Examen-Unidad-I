@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Examen_Unidad_I
 {
-    public partial class Form1 : Form
+    public partial class FormaPrincipal : Form
     {
-        public Form1()
+        public FormaPrincipal()
         {
             InitializeComponent();
+
+            Personaje personaje = new Rey();
+            personaje.ejecutarArma();
+            label1.Text = personaje.Nombre + " " + personaje.Arma;
         }
     }
 }

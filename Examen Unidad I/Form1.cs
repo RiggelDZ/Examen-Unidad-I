@@ -15,7 +15,8 @@ namespace Examen_Unidad_I
 
             Personaje personaje = new Rey();
             personaje.ejecutarArma();
-            label1.Text = personaje.Nombre + " " + personaje.Arma;
+
+            label1.Text = personaje.Nombre + " " + personaje.Arma + " " + personaje.Movimiento ;
         }
     }
 }

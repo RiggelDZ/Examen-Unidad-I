@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Examen_Unidad_I
 {
-    public interface RealizarMovimiento
+    class Arquero:Personaje
     {
-        string Realizar();
+        public Arquero()
+        {
+            Nombre = "Arquero";
+            equiparArma = new ArcoFlecha();
+        }
     }
 }

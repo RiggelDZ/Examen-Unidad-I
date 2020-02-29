@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Examen_Unidad_I
 {
-    public interface RealizarMovimiento
+    class Ogro:Personaje
     {
-        string Realizar();
+        public Ogro()
+        {
+            Nombre = "Ogro";
+            equiparArma = new Hacha();
+        }
     }
 }

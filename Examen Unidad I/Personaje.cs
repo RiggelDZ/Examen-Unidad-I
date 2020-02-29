@@ -10,24 +10,31 @@ namespace Examen_Unidad_I
     {
         private string nombre, movimiento, arma;
         public EquiparArma equiparArma;
-        public string Nombre { get { return nombre; } set { nombre = value; } }
-        public string Movimiento { get { return movimiento; } set { movimiento = value; } }
-        public string  Arma { get { return arma; } set { arma = value; } }
+        public RealizarMovimiento realizarMovimiento;
 
-        public Personaje() { }
+        public string Nombre { get { return nombre; } set { nombre = value; } }
+        public string Arma { get { return arma; } set { arma = value; } }
+        public string Movimiento { get { return movimiento; } set { movimiento = value; } }
+        
 
         public void establecerArma(EquiparArma ea)
         {
             equiparArma = ea;
         }
-        public void establecerMovimiento()
+
+        public void establecerMovimiento(RealizarMovimiento rm)
         {
-            
+            realizarMovimiento = rm;
         }
+
         public void ejecutarArma()
         {
-            Arma = equiparArma.Equipar();
+            arma = equiparArma.Equipar();
         }
-        public void ejecutarMovimiento() { }
+
+        public void ejecutarMovimiento()
+        {
+            movimiento = realizarMovimiento.Realizar();
+        }
     }
 }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Examen_Unidad_I
 {
-    public interface RealizarMovimiento
+    class Curar:RealizarMovimiento
     {
-        string Realizar();
+        public string Realizar()
+        {
+            return "Curar";
+        }
     }
 }

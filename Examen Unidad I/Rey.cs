@@ -12,7 +12,6 @@ namespace Examen_Unidad_I
         {
             Nombre = "Rey";
             equiparArma = new Espada();
-
         }
     }
 }

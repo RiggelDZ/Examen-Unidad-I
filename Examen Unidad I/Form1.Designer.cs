@@ -34,7 +34,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 97);
+            this.label1.Location = new System.Drawing.Point(102, 164);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 19);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Finale Lyrics", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaPrincipal";
             this.Text = "RPG";
             this.ResumeLayout(false);

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Examen_Unidad_I
 {
-    public interface RealizarMovimiento
+    class Caballero:Personaje
     {
-        string Realizar();
+        public Caballero()
+        {
+            Nombre = "Caballero";
+            equiparArma = new Lanza();
+        }
     }
 }

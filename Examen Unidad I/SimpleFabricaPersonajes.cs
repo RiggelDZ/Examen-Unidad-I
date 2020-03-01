@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Examen_Unidad_I
 {
+    //Patrón Simple Factory
     class SimpleFabricaPersonajes
     {
-        //Patrón Simple Factory
         public Personaje crearPersonaje(string tipo)
         {
             Personaje personaje = null;

@@ -59,6 +59,7 @@
             // 
             this.pboxP4.BackgroundImage = global::Examen_Unidad_I.Properties.Resources.caballero;
             this.pboxP4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pboxP4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxP4.Location = new System.Drawing.Point(521, 93);
             this.pboxP4.Name = "pboxP4";
             this.pboxP4.Size = new System.Drawing.Size(100, 100);
@@ -70,6 +71,7 @@
             // 
             this.pboxP3.BackgroundImage = global::Examen_Unidad_I.Properties.Resources.ogro;
             this.pboxP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pboxP3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxP3.Location = new System.Drawing.Point(360, 93);
             this.pboxP3.Name = "pboxP3";
             this.pboxP3.Size = new System.Drawing.Size(100, 100);
@@ -81,6 +83,7 @@
             // 
             this.pboxP2.BackgroundImage = global::Examen_Unidad_I.Properties.Resources.arquero;
             this.pboxP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pboxP2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxP2.Location = new System.Drawing.Point(200, 93);
             this.pboxP2.Name = "pboxP2";
             this.pboxP2.Size = new System.Drawing.Size(100, 100);
@@ -92,6 +95,7 @@
             // 
             this.pboxP1.BackgroundImage = global::Examen_Unidad_I.Properties.Resources.rey;
             this.pboxP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pboxP1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxP1.Location = new System.Drawing.Point(41, 93);
             this.pboxP1.Name = "pboxP1";
             this.pboxP1.Size = new System.Drawing.Size(100, 100);
@@ -193,7 +197,6 @@
             this.comboMovimiento.Name = "comboMovimiento";
             this.comboMovimiento.Size = new System.Drawing.Size(130, 27);
             this.comboMovimiento.TabIndex = 13;
-            this.comboMovimiento.SelectedIndexChanged += new System.EventHandler(this.comboMovimiento_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -323,6 +326,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG - David & Dan";
             ((System.ComponentModel.ISupportInitialize)(this.pboxP4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxP3)).EndInit();

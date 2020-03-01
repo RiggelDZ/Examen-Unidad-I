@@ -10,46 +10,86 @@ namespace Examen_Unidad_I
     public partial class FormaPrincipal : Form
     {
         SimpleFabricaPersonajes fabricaPersonajes = new SimpleFabricaPersonajes();
+        SimpleFabricaMovimientos simpleFabricaMovimientos = new SimpleFabricaMovimientos();
+        SimpleFabricaArmas simpleFabricaArmas = new SimpleFabricaArmas();
+
         Personaje p1, p2, p3, p4;
 
         public FormaPrincipal()
         {
             InitializeComponent();
-            crearPersonajes();
-        }
 
-        private void crearPersonajes()
-        {
-            p1 = fabricaPersonajes.crearPersonaje("rey"); lblArmaP1.Text = lblArmaP1.Text + "\n" + p1.Arma;
-            p2 = fabricaPersonajes.crearPersonaje("arquero"); lblArmaP2.Text = lblArmaP2.Text + "\n" + p2.Arma;
-            p3 = fabricaPersonajes.crearPersonaje("ogro"); lblArmaP3.Text = lblArmaP3.Text + "\n" + p3.Arma;
-            p4 = fabricaPersonajes.crearPersonaje("caballero"); lblArmaP4.Text = lblArmaP4.Text + "\n" + p4.Arma;
+            p1 = crearPersonaje("rey");
+            p2 = crearPersonaje("arquero");
+            p3 = crearPersonaje("ogro");
+            p4 = crearPersonaje("caballero");
+
+            imprimirDatosPersonajes();
+            
+            /*
+            p2.Movimiento = "Defender";
+            lblArmaP1.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            p2.guardarAccion();*/
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            validarCampos();
+            if (validarCampos())
+            {
+                hacerAccion(p1);
+                imprimirDatosPersonajes();
+
+            }
         }
 
-        private void comboMovimiento_SelectedIndexChanged(object sender, EventArgs e)
+        private Personaje crearPersonaje(string nombre)
         {
-
+            Personaje personaje = null;
+            personaje = fabricaPersonajes.crearPersonaje(nombre);
+            return personaje;
         }
 
-        private void validarCampos()
+        private void imprimirDatosPersonajes()
+        {
+            lblArmaP1.Text = string.Empty; lblArmaP2.Text = string.Empty;
+            lblArmaP3.Text = string.Empty; lblArmaP4.Text = string.Empty;
+            lblArmaP1.Text = lblArmaP1.Text + "\n" + p1.Arma;
+            lblArmaP2.Text = lblArmaP2.Text + "\n" + p2.Arma;
+            lblArmaP3.Text = lblArmaP3.Text + "\n" + p3.Arma;
+            lblArmaP4.Text = lblArmaP4.Text + "\n" + p4.Arma;
+        }
+
+        private void hacerAccion(Personaje personaje)
+        {
+            if (comboMovimiento.Enabled)
+            {
+                personaje.realizarMovimiento = simpleFabricaMovimientos.crearMovimiento(comboMovimiento.Text);
+            }
+            else if (comboArma.Enabled)
+            {
+                simpleFabricaArmas.crearArma(personaje, comboArma.Text);
+                personaje.ejecutarArma();
+            }
+        }
+
+        private bool validarCampos()
         {
             if (string.IsNullOrWhiteSpace(txtPersonaje.Text))
             {
                 MessageBox.Show("Seleccione un personaje.");
+                return false;
             }
             else if (comboArma.Enabled && string.IsNullOrWhiteSpace(comboArma.Text))
             {
                 MessageBox.Show("Seleccione un arma.");
+                return false;
             }
             else if (comboMovimiento.Enabled && string.IsNullOrWhiteSpace(comboMovimiento.Text))
             {
                 MessageBox.Show("Seleccione un movimiento.");
+                return false;
             }
+            return true;
         }
 
         private void radioMovimiento_CheckedChanged(object sender, EventArgs e)

@@ -8,7 +8,7 @@ namespace Examen_Unidad_I
 {
     class Curar:RealizarMovimiento
     {
-        public string Realizar()
+        public string realizar()
         {
             return "Curar";
         }

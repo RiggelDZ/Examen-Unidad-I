@@ -8,6 +8,6 @@ namespace Examen_Unidad_I
 {
     public interface RealizarMovimiento
     {
-        string Realizar();
+        string realizar();
     }
 }

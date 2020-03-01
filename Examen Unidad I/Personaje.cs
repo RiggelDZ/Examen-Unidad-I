@@ -29,12 +29,12 @@ namespace Examen_Unidad_I
 
         public void ejecutarArma()
         {
-            arma = equiparArma.Equipar();
+            arma = equiparArma.equipar();
         }
 
         public void ejecutarMovimiento()
         {
-            movimiento = realizarMovimiento.Realizar();
+            movimiento = realizarMovimiento.realizar();
         }
     }
 }

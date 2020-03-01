@@ -8,7 +8,7 @@ namespace Examen_Unidad_I
 {
     class ArcoFlecha:EquiparArma
     {
-        public string Equipar()
+        public string equipar()
         {
             return "Arco y Flecha";
         }

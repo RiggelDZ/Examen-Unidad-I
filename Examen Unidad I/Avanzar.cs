@@ -8,7 +8,7 @@ namespace Examen_Unidad_I
 {
     class Avanzar:RealizarMovimiento
     {
-        public string Realizar()
+        public string realizar()
         {
             return "Avanzar";
         }

@@ -8,7 +8,7 @@ namespace Examen_Unidad_I
 {
     class Espada:EquiparArma
     {
-        public string Equipar()
+        public string equipar()
         {
             return "Espada";
         }

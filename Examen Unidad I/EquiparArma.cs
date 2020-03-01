@@ -8,6 +8,6 @@ namespace Examen_Unidad_I
 {
     public interface EquiparArma
     {
-        string Equipar();
+        string equipar();
     }
 }

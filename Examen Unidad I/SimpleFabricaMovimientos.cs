@@ -9,27 +9,24 @@ namespace Examen_Unidad_I
     //Patrón Simple Factory
     class SimpleFabricaMovimientos
     {
-        public RealizarMovimiento crearMovimiento(string movimiento)
+        public void crearMovimiento(Personaje personaje, string movimiento)
         {
-            RealizarMovimiento realizarMovimiento = null;
 
             switch (movimiento)
             {
                 case "Atacar":
-                    realizarMovimiento = new Atacar();
+                    personaje.establecerMovimiento(new Atacar());
                     break;
                 case "Avanzar":
-                    realizarMovimiento = new Avanzar();
+                    personaje.establecerMovimiento(new Avanzar());
                     break;
                 case "Curar":
-                    realizarMovimiento = new Curar();
+                    personaje.establecerMovimiento(new Curar());
                     break;
                 case "Defender":
-                    realizarMovimiento = new Defender();
+                    personaje.establecerMovimiento(new Defender());
                     break;
             }
-
-            return realizarMovimiento;
         }
     }
 }

@@ -63,7 +63,8 @@ namespace Examen_Unidad_I
         {
             if (comboMovimiento.Enabled)
             {
-                personaje.realizarMovimiento = simpleFabricaMovimientos.crearMovimiento(comboMovimiento.Text);
+                simpleFabricaMovimientos.crearMovimiento(personaje, comboMovimiento.Text);
+                personaje.ejecutarMovimiento();
             }
             else if (comboArma.Enabled)
             {

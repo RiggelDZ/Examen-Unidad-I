@@ -8,6 +8,7 @@ namespace Examen_Unidad_I
 {
     class SimpleFabricaPersonajes
     {
+        //Patrón Simple Factory
         public Personaje crearPersonaje(string tipo)
         {
             Personaje personaje = null;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Examen_Unidad_I
 {
+    //Exportador de PDF
     class PDF
     {
         public void exportar(DataGridView dgLog, string filename)
@@ -66,7 +67,7 @@ namespace Examen_Unidad_I
                     PdfWriter.GetInstance(document, fileStream);
 
                     document.Open();
-                    document.AddCreator("Riggel Dehesa");
+                    document.AddCreator("Riggel Dehesa co");
                     document.AddCreationDate();
                     document.Add(titulo);
                     document.Add(p1);

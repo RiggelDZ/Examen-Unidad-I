@@ -25,31 +25,29 @@ namespace Examen_Unidad_I
             {
                 if (comboNombre.Enabled)
                 {
-                    buscarDatos(comboNombre.Text);
+                    buscarDatos(comboNombre.Text, comboBuscar.Text);
                 }
                 else if (comboArma.Enabled)
                 {
-                    buscarDatos(comboArma.Text);
+                    buscarDatos(comboArma.Text, comboBuscar.Text);
                 }
                 else if (comboMovimiento.Enabled)
                 {
-                    buscarDatos(comboMovimiento.Text);
+                    buscarDatos(comboMovimiento.Text, comboBuscar.Text);
                 }
                 else if (comboHora.Enabled)
                 {
-                    buscarDatos(comboHora.Text);
+                    buscarDatos(comboHora.Text, comboBuscar.Text);
                 }
             }
         }
 
-        private void buscarDatos(string busqueda)
+        private void buscarDatos(string busqueda, string filtro)
         {
             try
             {
-                dgLog.DataSource = consultaBD.buscar(busqueda, comboBuscar.Text).Tables[0];
-                imprimitDG();
-
-
+                dgLog.DataSource = consultaBD.buscar(busqueda, filtro).Tables[0];
+                imprimirDG();
             }
             catch(Exception ex)
             {
@@ -57,7 +55,7 @@ namespace Examen_Unidad_I
             }
         }
 
-        private void imprimitDG()
+        private void imprimirDG()
         {
             dgLog.Columns[0].HeaderText = "Nombre";
             dgLog.Columns[2].HeaderText = "Acción";
@@ -106,7 +104,7 @@ namespace Examen_Unidad_I
             PDF pdf = new PDF();
             if (dgLog.Rows.Count > 0)
             {
-                pdf.exportar(dgLog, "Log");
+                pdf.exportar(dgLog, "Historial - RPG D&D");
             }
             else
             {
@@ -125,6 +123,11 @@ namespace Examen_Unidad_I
                 MessageBox.Show("Selecciona un método de búsqueda");
                 return false;
             }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            buscarDatos("", "Completo");
         }
     }
 }

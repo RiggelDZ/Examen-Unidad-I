@@ -43,7 +43,15 @@ namespace Examen_Unidad_I
             {
                 Connection.Open();
                 Command = new MySqlCommand(query, Connection);
-                Command.Parameters.AddWithValue("@valor", valor);
+
+                if (tipoBusqueda != "Completo")
+                {
+                    Command.Parameters.AddWithValue("@valor", valor);
+                }
+                else
+                {
+                    valor = "";
+                }
 
                 DataAdapter = new MySqlDataAdapter(Command);
                 DataAdapter.Fill(ds);
@@ -88,6 +96,12 @@ namespace Examen_Unidad_I
                         "SELECT NombrePersonaje, Arma, Accion, Hora " +
                         "FROM log " +
                         "WHERE HOUR(Hora)= @valor");
+                    break;
+                case "Completo":
+                    q = string.Format(
+                        "SELECT NombrePersonaje, Arma, Accion, Hora " +
+                        "FROM log " +
+                        "ORDER BY Hora DESC");
                     break;
             }
             return q;

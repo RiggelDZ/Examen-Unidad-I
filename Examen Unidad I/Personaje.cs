@@ -3,9 +3,12 @@ using MySql.Data.MySqlClient;
 
 namespace Examen_Unidad_I
 {
+    //Patrón Strategy
     public abstract class Personaje
     {
         private string nombre, movimiento, arma;
+
+        //Referencias a interfaces de comportamiento
         private EquiparArma equiparArma;
         private RealizarMovimiento realizarMovimiento;
 
@@ -13,6 +16,7 @@ namespace Examen_Unidad_I
         public string Arma { get { return arma; } set { arma = value; } }
         public string Movimiento { get { return movimiento; } set { movimiento = value; } }
 
+        //Métodos que establecen el comportamiento
         public void establecerArma(EquiparArma ea)
         {
             equiparArma = ea;
@@ -23,6 +27,7 @@ namespace Examen_Unidad_I
             realizarMovimiento = rm;
         }
 
+        //Métodos que ejecutan el comportamiento
         public void ejecutarArma()
         {
             arma = equiparArma.equipar();

@@ -9,6 +9,7 @@ namespace Examen_Unidad_I
 {
     public partial class FormaPrincipal : Form
     {
+        //Fábricas simples que se encargan de la creación de personajes, movimientos y armas para personajes.
         SimpleFabricaPersonajes fabricaPersonajes = new SimpleFabricaPersonajes();
         SimpleFabricaMovimientos simpleFabricaMovimientos = new SimpleFabricaMovimientos();
         SimpleFabricaArmas simpleFabricaArmas = new SimpleFabricaArmas();
@@ -18,16 +19,13 @@ namespace Examen_Unidad_I
         public FormaPrincipal()
         {
             InitializeComponent();
-
+            
             p1 = crearPersonaje("rey");
             p2 = crearPersonaje("arquero");
             p3 = crearPersonaje("ogro");
             p4 = crearPersonaje("caballero");
 
             imprimirDatosPersonajes();
-            
-            /*
-            p2.guardarAccion();*/
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -36,7 +34,6 @@ namespace Examen_Unidad_I
             {
                 mandarPersonaje();
                 imprimirDatosPersonajes();
-
             }
         }
 
@@ -61,6 +58,7 @@ namespace Examen_Unidad_I
 
             if (comboMovimiento.Enabled)
             {
+                //Se manda añadir un movimiento para el personaje usando la fábrica simple.
                 simpleFabricaMovimientos.crearMovimiento(personaje, comboMovimiento.Text);
                 personaje.ejecutarMovimiento();
                 consultaBD.guardarAccion(personaje);
@@ -68,6 +66,7 @@ namespace Examen_Unidad_I
             }
             else if (comboArma.Enabled)
             {
+                //Se manda añadir un arma para el personaje usando la fábrica simple.
                 simpleFabricaArmas.crearArma(personaje, comboArma.Text);
                 personaje.ejecutarArma();
                 simpleFabricaMovimientos.crearMovimiento(personaje, "Cambio de arma");

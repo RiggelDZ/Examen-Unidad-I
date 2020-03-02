@@ -10,7 +10,7 @@ namespace Examen_Unidad_I
     {
         public string realizar()
         {
-            return "Avanzar";
+            return "Avance";
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Examen_Unidad_I
     {
         public void crearMovimiento(Personaje personaje, string movimiento)
         {
-
             switch (movimiento)
             {
                 case "Atacar":
@@ -25,6 +24,9 @@ namespace Examen_Unidad_I
                     break;
                 case "Defender":
                     personaje.establecerMovimiento(new Defender());
+                    break;
+                case "Cambio de arma":
+                    personaje.establecerMovimiento(new CambiarArma());
                     break;
             }
         }

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Examen_Unidad_I
 {
-    class Ogro:Personaje
+    class CambiarArma:RealizarMovimiento
     {
-        public Ogro()
+        public string realizar()
         {
-            Nombre = "Ogro";
-            establecerArma(new Hacha());
+            return "Cambio de arma";
         }
     }
 }

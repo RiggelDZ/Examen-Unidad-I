@@ -14,7 +14,7 @@ namespace Examen_Unidad_I
         public Rey()
         {
             Nombre = "Rey";
-            equiparArma = new Espada();
+            establecerArma(new Espada());
         }
     }
 }

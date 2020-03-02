@@ -27,8 +27,6 @@ namespace Examen_Unidad_I
             imprimirDatosPersonajes();
             
             /*
-            p2.Movimiento = "Defender";
-            lblArmaP1.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             p2.guardarAccion();*/
         }
 
@@ -36,7 +34,7 @@ namespace Examen_Unidad_I
         {
             if (validarCampos())
             {
-                hacerAccion(p1);
+                mandarPersonaje();
                 imprimirDatosPersonajes();
 
             }
@@ -51,25 +49,51 @@ namespace Examen_Unidad_I
 
         private void imprimirDatosPersonajes()
         {
-            lblArmaP1.Text = string.Empty; lblArmaP2.Text = string.Empty;
-            lblArmaP3.Text = string.Empty; lblArmaP4.Text = string.Empty;
-            lblArmaP1.Text = lblArmaP1.Text + "\n" + p1.Arma;
-            lblArmaP2.Text = lblArmaP2.Text + "\n" + p2.Arma;
-            lblArmaP3.Text = lblArmaP3.Text + "\n" + p3.Arma;
-            lblArmaP4.Text = lblArmaP4.Text + "\n" + p4.Arma;
+            lblArmaP1.Text = "Arma:" + "\n" + p1.Arma;
+            lblArmaP2.Text = "Arma:" + "\n" + p2.Arma;
+            lblArmaP3.Text = "Arma:" + "\n" + p3.Arma;
+            lblArmaP4.Text = "Arma:" + "\n" + p4.Arma;
         }
 
         private void hacerAccion(Personaje personaje)
         {
+            ConsultaBD consultaBD = new ConsultaBD();
+
             if (comboMovimiento.Enabled)
             {
                 simpleFabricaMovimientos.crearMovimiento(personaje, comboMovimiento.Text);
                 personaje.ejecutarMovimiento();
+                consultaBD.guardarAccion(personaje);
+                mboxAccion(personaje);
             }
             else if (comboArma.Enabled)
             {
                 simpleFabricaArmas.crearArma(personaje, comboArma.Text);
                 personaje.ejecutarArma();
+                simpleFabricaMovimientos.crearMovimiento(personaje, "Cambio de arma");
+                personaje.ejecutarMovimiento();
+                consultaBD.guardarAccion(personaje);
+                mboxAccion(personaje);
+            }
+        }
+        
+
+        private void mandarPersonaje()
+        {
+            switch (txtPersonaje.Text)
+            {
+                case "Rey":
+                    hacerAccion(p1);
+                    break;
+                case "Arquero":
+                    hacerAccion(p2);
+                    break;
+                case "Ogro":
+                    hacerAccion(p3);
+                    break;
+                case "Caballero":
+                    hacerAccion(p4);
+                    break;
             }
         }
 
@@ -91,6 +115,20 @@ namespace Examen_Unidad_I
                 return false;
             }
             return true;
+        }
+
+        public void mboxAccion(Personaje personaje)
+        {
+            if (personaje.Movimiento == "Ataque")
+            {
+                MessageBox.Show(personaje.Nombre + " realizó " + personaje.Movimiento.ToLower() + " con " + personaje.Arma.ToLower());
+            }
+            else
+            {
+                MessageBox.Show(personaje.Nombre + " realizó " + personaje.Movimiento.ToLower());
+            }
+
+            txtPersonaje.Clear(); comboArma.ResetText(); comboMovimiento.ResetText();
         }
 
         private void radioMovimiento_CheckedChanged(object sender, EventArgs e)
@@ -116,6 +154,12 @@ namespace Examen_Unidad_I
         private void pboxP1_MouseClick(object sender, MouseEventArgs e)
         {
             txtPersonaje.Text = p1.Nombre;
+        }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            FormaLog formaLog = new FormaLog();
+            formaLog.ShowDialog();
         }
 
         private void pboxP2_MouseClick(object sender, MouseEventArgs e)

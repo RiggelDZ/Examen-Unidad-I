@@ -11,7 +11,7 @@ namespace Examen_Unidad_I
         public Arquero()
         {
             Nombre = "Arquero";
-            equiparArma = new ArcoFlecha();
+            establecerArma(new ArcoFlecha());
         }
     }
 }

@@ -5,11 +5,12 @@ namespace Examen_Unidad_I
 {
     class Conexion
     {
-        public string conexion, mensaje;
-        protected MySqlConnection connection;
-        protected MySqlCommand command;
-        protected MySqlDataReader datareader;
-        protected MySqlDataAdapter dataadapter;
+        private string conexion;
+        public string mensaje;
+        private MySqlConnection connection;
+        private MySqlCommand command;
+        private MySqlDataReader datareader;
+        private MySqlDataAdapter dataadapter;
 
         public MySqlConnection Connection { get { return connection; } set { connection = value; } }
         public MySqlCommand Command { get { return command; } set { command = value; } }

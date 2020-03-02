@@ -49,6 +49,7 @@
             this.radioArma = new System.Windows.Forms.RadioButton();
             this.comboArma = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxP4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxP3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxP2)).BeginInit();
@@ -295,12 +296,26 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // btnLog
+            // 
+            this.btnLog.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLog.Font = new System.Drawing.Font("Finale Lyrics", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLog.Location = new System.Drawing.Point(577, 394);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(88, 35);
+            this.btnLog.TabIndex = 22;
+            this.btnLog.Text = "Log";
+            this.btnLog.UseVisualStyleBackColor = false;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
+            // 
             // FormaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(677, 441);
+            this.Controls.Add(this.btnLog);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.comboArma);
             this.Controls.Add(this.radioArma);
@@ -359,6 +374,7 @@
         private System.Windows.Forms.RadioButton radioArma;
         private System.Windows.Forms.ComboBox comboArma;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnLog;
     }
 }
 
